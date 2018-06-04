@@ -14,7 +14,7 @@ def wit_resp(message_text):
         entity= list(resp['entities'])[0]
         print('entity::',entity)
         value = resp['entities'][entity][0]['value']
-        print('response::',resp)
+        print('value::',value)
     except:
         pass
     return (entity,value)

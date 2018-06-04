@@ -70,7 +70,6 @@ protobuf==3.5.2.post1
 pycparser==2.18
 Pygments==2.2.0
 pymessenger==0.0.7.0
-pyodbc==4.0.23
 pyparsing==2.2.0
 python-dateutil==2.7.3
 python-mimeparse==1.6.0

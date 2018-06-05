@@ -1,22 +1,23 @@
 from wit import Wit
+import json
 
 access_token = 'F46COF2YGJDQZLFIETD6JTJ3L6IJFGNW'
 client = Wit(access_token=access_token)
 
 def wit_resp(message_text):
-    print('inside wit_reponse')
     resp=client.message(message_text)
     print('wit reponse::',resp)
-    entity=None
-    value=None
+    entities=None
+    intentdict = {}
 
     try:
-        entity= list(resp['entities'])[0]
-        print('entity::',entity)
-        value = resp['entities'][entity][0]['value']
-        print('value::',value)
+        entities= list(resp['entities'])
+        print('entities::',entities)
+        for entity in entities:
+            intentdict.update({entity:[data['value'] for data in resp['entities'][entity]]})
+            print('value::',intentdict)
     except:
         pass
-    return (entity,value)
+    return (intentdict)
 
 print(wit_resp('I want sports news'))

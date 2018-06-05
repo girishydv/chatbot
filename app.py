@@ -40,15 +40,20 @@ def webhook():
                     # Echo
                     print('messaging_text::',messaging_text)
                     response=None
-                    entity,value=wit_resp(messaging_text)
-                    print('entity,value::',entity,value)
-                    if entity=='local_search_query':
-                        response="OK, I will send you news or some search result on {} ".format(str(value))
-                    elif entity =='location':
-                        response = 'OK, you live in {0}. That\'s a fantastic place. I will send you top headlines from {0}'.format(str(value))
-
+                    intentdict=wit_resp(messaging_text)
+                    print('intentdict::',intentdict)
+                    #for entity in intentdict:
+                    if ('agenda_enter' in intentdict) & ('location' in intentdict) & ('datetime' in intentdict):
+                        agenda = " ".join(str(x) for x in intentdict['agenda_entry'])
+                        response = "OK, I will {0} for you {1} {2}".format(str(agenda), intentdict['location'][0],
+                                                                           intentdict['datetime'][0])
+                    elif 'location' in intentdict:
+                        response = 'OK, you live in {0}. That\'s a fantastic place. I will send you top headlines from {0}'.format(str(intentdict['location'][0]))
+                    if  'datetime' in intentdict:
+                        response = 'what do you want me to do with this date'
                     if response==None:
                         response='Sorry I din\'t get you.'
+
                     bot.send_text_message(sender_id, response)
     return "OK", 200
 

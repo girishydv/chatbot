@@ -44,7 +44,7 @@ def webhook():
                     print('intentdict::',intentdict)
                     #for entity in intentdict:
                     if ('agenda_enter' in intentdict) & ('location' in intentdict) & ('datetime' in intentdict):
-                        agenda = " ".join(str(x) for x in intentdict['agenda_entry'])
+                        agenda = " ".join(str(x) for x in intentdict['agenda_enter'])
                         response = "OK, I will {0} for you {1} {2}".format(str(agenda), intentdict['location'][0],
                                                                            intentdict['datetime'][0])
                     elif 'location' in intentdict:

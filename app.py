@@ -49,7 +49,7 @@ def webhook():
                                                                            intentdict['datetime'][0])
                     elif 'location' in intentdict:
                         response = 'OK, you live in {0}. That\'s a fantastic place. I will send you top headlines from {0}'.format(str(intentdict['location'][0]))
-                    if  'datetime' in intentdict:
+                    elif  'datetime' in intentdict:
                         response = 'what do you want me to do with this date'
                     if response==None:
                         response='Sorry I din\'t get you.'

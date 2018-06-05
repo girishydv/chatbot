@@ -42,10 +42,10 @@ def webhook():
                     response=None
                     entity,value=wit_resp(messaging_text)
                     print('entity,value::',entity,value)
-                    if entity=='news_type':
-                        response="OK, I will send you {} news".format(str(value))
+                    if entity=='local_search_query':
+                        response="OK, I will send you news or some search result on {} ".format(str(value))
                     elif entity =='location':
-                        response = 'OK, you live in {0}. I will send you top headlines from {0}'.format(str(value))
+                        response = 'OK, you live in {0}. That\'s a fantastic place. I will send you top headlines from {0}'.format(str(value))
 
                     if response==None:
                         response='Sorry I din\'t get you.'

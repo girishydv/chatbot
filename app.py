@@ -51,8 +51,10 @@ def webhook():
                         response = 'OK, you live in {0}. That\'s a fantastic place. I will send you top headlines from {0}'.format(str(intentdict['location'][0]))
                     elif  'datetime' in intentdict:
                         response = 'what do you want me to do with this date'
+                    elif 'greetings' in intentdict:
+                        response = 'Hi, how may I help you ? '
                     if response==None:
-                        response='Sorry I din\'t get you.'
+                        response='Sorry I didn\'t get you.'
 
                     bot.send_text_message(sender_id, response)
     return "OK", 200

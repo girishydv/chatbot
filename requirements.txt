@@ -3,7 +3,7 @@ astor==0.6.2
 attrs==18.1.0
 Automat==0.6.0
 backcall==0.1.0
-bleach==1.5.0
+bleach==3.1.2
 boto3==1.7.26
 botocore==1.10.26
 certifi==2018.4.16

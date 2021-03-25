@@ -75,7 +75,7 @@ python-dateutil==2.7.3
 python-mimeparse==1.6.0
 pytz==2018.3
 pywinpty==0.5.1
-PyYAML==3.12
+PyYAML==5.4
 pyzmq==17.0.0
 qtconsole==4.3.1
 rasa-nlu==0.12.3
